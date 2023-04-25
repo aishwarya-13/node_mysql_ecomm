@@ -1,0 +1,24 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/nav.ejs') %>
+            <main class='text-center'>
+                    This is Cart
+                    <% if(products.length > 0){ 
+                        for(let item of products) { %>
+                            <div class="card" style="width: 18rem;">
+                                <img src="<%= item.imageUrl %>" class="card-img-top" alt="<%= item.productData.imageUrl %>"/>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= item.productData.title %></h5>
+                                    <p class="card-text"><%= item.productData.description %></p>
+                                    <p class="card-text"><%= item.qty %></p>
+                                    <p class="card-text"><%= item.qty * item.productData.price %></p>
+                                    <a href='/delete-cart-item/<%= item.productData.id %>' class='btn btn-success'>
+                                            Delete
+                                    </a>
+                                </div>
+                            </div>
+                    <% }} else {%>
+                        <h3>No Products Found</h3>
+                    <% } %>
+            </main>
+<%- include('../includes/end.ejs') %>

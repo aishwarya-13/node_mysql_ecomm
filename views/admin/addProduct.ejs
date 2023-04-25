@@ -1,0 +1,34 @@
+<%- include('../includes/head.ejs') %>
+    <link rel='stylesheet' href='/styles/main.css'>
+</head>
+<%- include('../includes/nav.ejs') %>
+    <main class='center'>
+            <form action='/admin/<%= isEdit ? "update-product" : "product" %>' method='POST'>
+        <!-- <form action='/admin/<% if (isEdit) { %> /update-product <%} else { %> /product <% } %>' method='POST'> -->
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" class="form-control" name='title'
+                    placeholder="Enter product name" value='<%= isEdit ? product.title : "" %>'>
+            </div>
+            <div class="form-group">
+                <label>Image Url:</label>
+                <input type="text" class="form-control" name='imageUrl'
+                    placeholder="Enter product name" value='<%= isEdit ? product.imageUrl : "" %>'>
+            </div>
+            <div class="form-group">
+                    <label>Price:</label>
+                    <input type="number" step="0.01" class="form-control" name='price'
+                        placeholder="Enter product name" value='<%= isEdit ? product.price : "" %>'>
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <input type="text" class="form-control" name='description'
+                    placeholder="Enter product name" value='<%= isEdit ? product.description : "" %>'>
+                </input>
+            </div>
+            <input type='hidden' name='productId' value='<%= isEdit ? product.id : 0%>'/>
+            <button type="submit" class="btn btn-success"><% if (isEdit) { %> Update Product <%} else { %> Add Product <% } %></button>
+        </form>
+    </main>
+
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+    <link rel='stylesheet' href='/styles/main.css'>
+</head>
+<%- include('../includes/nav.ejs') %>
+    <main class='center'>
+        <form action='/admin/product' method='POST'>
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" class="form-control" name='title' aria-describedby="emailHelp"
+                    placeholder="Enter product name">
+            </div>
+            <div class="form-group">
+                <label>Image Url:</label>
+                <input type="text" class="form-control" name='imageUrl' aria-describedby="emailHelp"
+                    placeholder="Enter product name">
+            </div>
+            <div class="form-group">
+                    <label>Price:</label>
+                    <input type="number" step="0.01" class="form-control" name='price' aria-describedby="emailHelp"
+                        placeholder="Enter product name">
+                </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea type="text" class="form-control" name='description' aria-describedby="emailHelp"
+                    placeholder="Enter product name">
+                </textarea>
+            </div>            
+            <button type="submit" class="btn btn-success">Add Product</button>
+        </form>
+    </main>
+
+<%- include('../includes/end.ejs') %>
